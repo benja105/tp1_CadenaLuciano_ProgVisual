@@ -86,7 +86,7 @@ public class Main {
             System.out.println("Jugador agregado correctamente.");
         } catch (InputMismatchException e) {
             System.out.println("Error: ¡Debe ingresar un valor válido!");
-            scanner.next(); // Limpiar el buffer del scanner
+            scanner.next();
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
@@ -139,10 +139,19 @@ public class Main {
 
             for (Jugador jugador : jugadores) {
                 if (jugador.getNombre().equals(nombre) && jugador.getApellido().equals(apellido)) {
+                    System.out.print("Ingrese la nueva fecha de nacimiento del jugador: ");
+                    String fechaNacimientoStr = scanner.next();
+                    LocalDate nuevafechaNacimiento = LocalDate.parse(fechaNacimientoStr);
                     System.out.print("Ingrese la nueva nacionalidad del jugador: ");
                     String nuevaNacionalidad = scanner.next();
-                    jugador = new Jugador(nombre, apellido, jugador.getFechaNacimiento(),
-                            nuevaNacionalidad, jugador.getEstatura(), jugador.getPeso(), jugador.getPosicion());
+                    System.out.print("Ingrese la nueva estatura del jugador: ");
+                    double nuevaEstatura = scanner.nextDouble();
+                    System.out.print("Ingrese la nueva peso del jugador: ");
+                    double nuevoPeso = scanner.nextDouble();
+                    System.out.print("Ingrese la nueva posicion del jugador: ");
+                    String nuevaPosicion = scanner.next();
+                    jugador = new Jugador(nombre, apellido, nuevafechaNacimiento,
+                            nuevaNacionalidad, nuevaEstatura, nuevoPeso, nuevaPosicion);
                     System.out.println("Datos del jugador modificados correctamente.");
                     return;
                 }
