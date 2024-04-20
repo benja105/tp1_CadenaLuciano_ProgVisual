@@ -36,12 +36,20 @@ public class Main {
 			
 		}while(indice<1 || indice>5);
 		
-		nombres[indice - 1] = "";
+		while(indice<nombres.length) {
+			
+			nombres[indice - 1] = nombres[indice];
+			indice++;
+			
+		}
+		
+		nombres[4] = "";
 		
 		System.out.println("\nArreglo despues de eliminar el elemento: ");
-		for(String nombre : nombres) {
+		
+		for(int k=0; k<nombres.length-1; k++) {
 			
-			System.out.println(nombre);
+			System.out.println((k+1) + "-" + nombres[k]);
 			
 		}
 		
