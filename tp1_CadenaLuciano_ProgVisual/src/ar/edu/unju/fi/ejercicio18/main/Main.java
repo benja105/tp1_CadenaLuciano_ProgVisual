@@ -14,8 +14,7 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
         ArrayList<Pais> paises = new ArrayList<>();
         ArrayList<DestinoTuristico> destinos = new ArrayList<>();
-
-        // Precargar paises
+        
         paises.add(new Pais(1, "Argentina"));
         paises.add(new Pais(2, "Brasil"));
         paises.add(new Pais(3, "Chile"));
@@ -77,7 +76,7 @@ public class Main {
         try {
             System.out.print("Ingrese el código del destino turístico: ");
             int codigo = scanner.nextInt();
-            scanner.nextLine(); // Consumir la nueva línea pendiente
+            scanner.nextLine();
             System.out.print("Ingrese el nombre del destino turístico: ");
             String nombre = scanner.nextLine();
             System.out.print("Ingrese el precio del destino turístico: ");
@@ -130,7 +129,7 @@ public class Main {
         try {
             System.out.print("Ingrese el código del destino turístico: ");
             int codigoDestino = scanner.nextInt();
-            scanner.nextLine(); // Consumir la nueva línea pendiente
+            scanner.nextLine();
 
             DestinoTuristico destinoSeleccionado = null;
             for (DestinoTuristico destino : destinos) {
@@ -244,6 +243,8 @@ public class Main {
             for (DestinoTuristico destino : destinos) {
                 if (destino.getPais().getCodigo() == codigoPais) {
                     System.out.println(destino);
+                }else {
+                	System.out.println("Este país no tiene destinos turisticos para mostrar.");
                 }
             }
         } catch (Exception e) {
